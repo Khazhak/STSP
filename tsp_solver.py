@@ -8,8 +8,8 @@ class TSPSolver():
         self.c = c
         self.v_lower = v_lower
 
-    def solve(self, algorithm = 'tsp', N_lower = None, v_vals = None):
-        if algorithm == 'tsp':
+    def solve(self, algorithm = 'P1', N_lower = None, v_vals = None):
+        if algorithm == 'P2':
             m = Model()
             m.Params.LogToConsole = 0
             N = [i for i in range(self.n)]
@@ -47,9 +47,9 @@ class TSPSolver():
             x_array = [[x[i][j].x for i in range(self.n)] for j in range(self.n)] 
 
             return x_array, m.objVal
-        elif algorithm == 'opt':
+        elif algorithm == 'P1':
             if N_lower is None:
-                print('N_lower should be given if algorithm=opt')
+                print('N_lower should be given if algorithm=P1')
                 raise NotImplementedError
 
             m = Model()
@@ -103,7 +103,7 @@ class TSPSolver():
 
                 return x_array, v_array, m.objVal
             return None, None, None
-        elif algorithm == 'opt_relax':
+        elif algorithm == 'RP1':
             if N_lower is None:
                 print('N_lower should be given if algorithm=opt')
                 raise NotImplementedError

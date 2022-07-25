@@ -30,9 +30,3 @@ for n in range(10, 100, 10):
     times.append(stop - start)
 
 print(times)
-
-# print(x)
-# print(u)
-
-# u = 0, 1, 2
-# 1 -> 0,1 1,2 2,3
